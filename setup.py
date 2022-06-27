@@ -2,40 +2,14 @@ import sys
 import time
 from setuptools import setup, find_packages
 
-if '--release' in sys.argv:
-    IS_RELEASE = True
-    sys.argv.remove('--release')
-else:
-    # Build a nightly package by default.
-    IS_RELEASE = False
-
 # Environment-specific dependencies.
 extras = {
     'torch': ['torch', 'torchvision', 'dgl', 'dgllife'],
 }
 
-# get the version from tutu/__init__.py
-def _get_version():
-    with open('tutu/__init__.py') as fp:
-        for line in fp:
-            if line.startswith('__version__'):
-                g = {}
-                exec(line, g)
-                base = g['__verison__']
-                if IS_RELEASE:
-                    return base
-                else:
-                    # nightly version : .devYearMonthDayHourMinute
-                    if base.endswith('.dev') is False:
-                        # Force to add `.dev` if `--release` option isn't passed when building
-                        base += '.dev'
-                    return base + time.strftime("%Y%m%d%H%M%S")
-    raise ValueError('`__version__` not defined in `tutu/__init__.py`')
-
-
 setup(
     name='tutu',
-    verison=_get_version(),
+    verison='0.1.0',
     url='https://github.com/trumanw/tutu',
     aintainer='TuTu contributors',
     classifiers=[

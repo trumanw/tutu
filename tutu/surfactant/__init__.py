@@ -1,0 +1,1 @@
+from tutu.surfactant.cmc_pred import GCNReg, predict
