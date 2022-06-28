@@ -27,13 +27,13 @@ def load_cmc_models(model_dir='models/surfactant/cmc', model_suffix=".pth.tar"):
     model_ckpts = [join(model_dir, f) for f in listdir(os.path.join(prefix_abspath, model_dir)) if isfile(join(model_dir, f)) and f.endswith(model_suffix)]
     return model_ckpts
 
-model_select = st.sidebar.selectbox(
+model_select = st.selectbox(
     label ="CMC Model select",
     options=load_cmc_models()
 )
 
 # Visualization 
-uploaded_smiles_file = st.sidebar.file_uploader("Choose a file")
+uploaded_smiles_file = st.file_uploader("Choose a file")
 if uploaded_smiles_file is not None:
     # To read file as bytes:
     smiles_df = pd.read_csv(uploaded_smiles_file)

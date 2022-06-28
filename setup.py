@@ -37,11 +37,9 @@ setup(
         'numpy>=1.21',
         'pandas',
         'scikit-learn',
-        'scipy',
         'rdkit-pypi',
         'seaborn',
         'matplotlib',
         'plotly',
-        'rdkit-pypi',
     ],
     python_requires='>=3.7,<3.10')
