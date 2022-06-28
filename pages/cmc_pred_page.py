@@ -14,6 +14,7 @@ from rdkit.Chem import PandasTools
 from tutu.surfactant import predict
 
 # Streamlit entrypoint
+st.sidebar.markdown("# CMC Prediction")
 st.write("""
 # Surfactants CMC Prediction App
 This app predicts the **surfactants CMC** via GCN model!
